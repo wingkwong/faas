@@ -26,6 +26,10 @@ This is just a short list of ideas, if you have other ideas for contributing ple
 
 ### I want to contribute on GitHub
 
+#### I've found a security issue
+
+Please follow [responsible disclosure practices](https://en.wikipedia.org/wiki/Responsible_disclosure) and send an email to support@openfaas.com. Bear in mind that instructions on how to reproduce the issue are key to proving an issue exists, and getting it resolved. Suggested solutions are also weclome.
+
 #### I've found a typo
 
 * A Pull Request is not necessary. Raise an [Issue](https://github.com/openfaas/faas/issues) and we'll fix it as soon as we can. 
@@ -237,9 +241,7 @@ In the OpenFaaS community there are four levels of structure or maintainership:
 The Core Team includes:
 
 - Alex Ellis (@alexellis) - Lead
-- Stefan Prodan (@stefanprodan) - SME for Kubernetes
 - Lucas Roesler (@LucasRoesler) - SME for logs, provider model and secrets
-- Burton Rheutan (@burtonr) - SME for CLI and Swarm
 
 The Core Team have the ear of the Project Lead. They help with strategy, project maintenance, community management, and make a regular commitment of time to the project on a weekly basis. The Core Team will usually be responsible for, or be a subject-matter-expert (SME) for a sub-system of OpenFaaS. Core Team may be granted write (push) access to one or more sub-systems.
 

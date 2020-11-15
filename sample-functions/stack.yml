@@ -46,6 +46,10 @@ functions:
     lang: go
     handler: ./haveibeenpwned
     image: functions/haveibeenpwned:0.13.0
+  hey:
+    lang: dockerfile
+    handler: ./hey
+    image: functions/hey:0.1.0
   hostnameintent:
     lang: dockerfile
     handler: ./HostnameIntent

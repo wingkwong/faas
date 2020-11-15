@@ -4,25 +4,19 @@ OpenFaaS is licensed as MIT and completely Open Source and free to use. However 
 
 Companies using OpenFaaS with their products or projects are encouraged to join at Gold or Platinum tier. Commercial support is also available.
 
-## `#FaaSFriday`
+## How to become a Sponsor or Insider
 
-To enter the `#FaaSFriday` contest you should tweet a photo (not a screenshot) to `@openfaas`. It
-could be of you, or of your computer / laptop / workstation / screen with whatever you're working on with OpenFaaS.
+## Insiders Subscription
 
-Ideas: trying the workshop, a tutorial, writing some code, fixing an issue, implementing it at work
-and so on. See the [past entries](https://twitter.com/search?q=faasfriday&src=typed_query&f=live) for ideas.
+Buy an Insiders Subscription and get regular email updates directly from me on Kubernetes, Docker, Cloud Native, Raspberry Pi, Serverless and all the open source projects I maintain. Keep up to date, learn new skills, and get discounts on SWAG.
 
-Winners are sent SWAG.
+Read a free sample or Become an Insider today:
 
-## How to become a backer or Insider
+* [GitHub Sponsors](https://github.com/sponsors/alexellis)
 
-## OpenFaaS Insiders
+Alternatively, you can [become a GitHub sponsor for OpenFaaS](https://github.com/sponsors/openfaas)
 
-You can get regular insider updates and become an Insider from as little as 5 USD / mo by sponsoring the lead and founder [Alex Ellis via GitHub Sponsors](https://www.openfaas.com/support/). You'll get regular updates with all the news, videos, blogs, content and early access to features.
-
-Become an Insider today: [GitHub Sponsors](https://www.openfaas.com/support/)
-
-### Homepage Sponsorship / OpenFaaS corporate sponsors
+## Homepage Sponsorship / OpenFaaS corporate sponsors
 
 Become a sponsor of openfaas.com and connect your brand to one of the fastest-growing developer communities with over 18k GitHub stars and dozens of well-known end-users. Use one of the funding options above, or email: [sales@openfaas.com](mailto:sales@openfaas.com) to ask about how to sponsor by invoice through OpenFaaS Ltd.
 
@@ -40,39 +34,27 @@ Become a sponsor of openfaas.com and connect your brand to one of the fastest-gr
 
 * Bronze
 
-    Logo in BACKERS.md (this file) - (monthly rolling via GitHub Sponsors)
+    Logo in BACKERS.md (this file) - (monthly rolling via [GitHub Sponsors](http://github.com/sponsors/openfaas))
 
-### Sponsor plus packages
+## Support
 
 Get support, backlog, issue & PR prioritization, and professional services with your sponsorship from OpenFaaS Ltd, the host and curator of OpenFaaS.
 
-* Platinum sponsor plus
-
-    Platinum sponsorship plus up to 20% of a senior engineer's time per week for OpenFaaS support and professional services
-
-* Gold sponsor plus
-
-    Gold sponsorship plus up to 4 hours of a senior engineer's time per month for OpenFaaS support and professional services
-
 Email [sales@openfaas.com](mailto:sales@openfaas.com) for a quote.
 
-#### Platinum Sponsors (homepage sponsor)
+## Current sponsors
+
+### Platinum Sponsors (homepage sponsor)
 
 <a href="https://digitalocean.com"><img alt="DigitalOcean" src="https://www.openfaas.com/images/sponsors/digitalocean.svg" width="110px" /></a>
 
-<a href="https://www.thectoadvisor.com"><img alt="CTO Advisor" src="https://www.openfaas.com/images/sponsors/cto-advisor.png" width="110px" /></a>
-
-<a href="https://dx.no"><img alt="DX" src="https://www.openfaas.com/images/users-logos/dx.png" width="110px" /></a>
-
 <a href="https://rancher.com"><img alt="Rancher" src="https://www.openfaas.com/images/sponsors/rancher-logo-stacked-color.svg" width="110px" /></a>
 
-#### Gold Sponsors (homepage sponsor)
+### Gold Sponsors (homepage sponsor)
 
 Be the first
 
-<!-- <a href="https://civo.com"><img alt="Civo" src="https://www.openfaas.com/images/sponsors/civo.svg" width="100px" /></a> -->
-
-#### Bronze Sponsors
+### Bronze Sponsors
 
 <a href="https://garden.io"><img alt="Garden.io" src="https://www.openfaas.com/images/sponsors/garden.png" width="90px" /></a>
 
@@ -84,13 +66,12 @@ Be the first
 
 <a href="https://cloudux.io/">cloudux.io</a>
 
-## Individual backers
+## `#FaaSFriday`
 
-As an individual your support can go a long way, please join on GitHub Sponsors.
+To enter the `#FaaSFriday` contest you should tweet a photo (not a screenshot) to `@openfaas`. It
+could be of you, or of your computer / laptop / workstation / screen with whatever you're working on with OpenFaaS.
 
-* View or join our [GitHub sponsors](https://insiders.openfaas.io/)
+Ideas: trying the workshop, a tutorial, writing some code, fixing an issue, implementing it at work
+and so on. See the [past entries](https://twitter.com/search?q=faasfriday&src=typed_query&f=live) for ideas.
 
-Patreon takes a processing fees and an additional pay-out fee, so GitHub sponsors is recommended for maximum impact.
-
-* View or join the [Patreon backers](https://www.patreon.com/alexellis)
-
+Winners are sent SWAG.

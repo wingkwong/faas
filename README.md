@@ -1,6 +1,5 @@
 ## OpenFaaS &reg; - Serverless Functions Made Simple
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/openfaas/faas)](https://goreportcard.com/report/github.com/openfaas/faas)
 [![Build Status](https://travis-ci.com/openfaas/faas.svg?branch=master)](https://travis-ci.com/openfaas/faas)
 [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/openfaas/faas)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -36,17 +35,21 @@ OpenFaaS&reg; makes it easy for developers to deploy event-driven functions and 
 
 ![Conceptual architecture](/docs/of-layer-overview.png)
 
+> Conceptual architecture and stack, [more detail available in the docs](https://docs.openfaas.com/architecture/stack/)
+
 ### Press / Branding / Website Sponsorship
 
 * Individual Sponsorships / End-users / Insiders Track 🍻
 
-  OpenFaaS is free to use and completely open source under the MIT license, however financial backing is required to sustain the effort to maintain and develop the project.
-  
-  Users and contributors are encouraged to join their peers in supporting the work through [GitHub Sponsors](https://insiders.openfaas.io/), all tiers gain exclusive access to the [Insiders Track](BACKERS.md)
+    The source code for OpenFaaS is free to use and open source under the terms of the MIT license.
+
+    OpenFaaS Ltd offers [commercial support and enterprise add-ons](https://www.openfaas.com/support) for end-users and [training and consulting services for Cloud and Kubernetes](https://www.openfaas.com/consulting).
+
+    Users and contributors are encouraged to join their peers in supporting the project through [GitHub Sponsors](https://www.openfaas.com/support).
 
 * Website Sponsorship 🌎
 
-  Companies and brands are welcome to sponsor [openfaas.com](https://www.openfaas.com/), the Gold and Platinum tiers come with a homepage logo, [see costs and tiers](BACKERS.md). Website sponsorships can be paid by invoice to OpenFaaS Ltd.
+  Companies and brands are welcome to sponsor [openfaas.com](https://www.openfaas.com/), the Gold and Platinum tiers come with a homepage logo, [see costs and tiers](BACKERS.md). Website sponsorships are payable by invoice.
 
 * Press / Branding 📸
 
@@ -54,11 +57,13 @@ OpenFaaS&reg; makes it easy for developers to deploy event-driven functions and 
 
   Looking for statistics? This project does not use a mono-repo, but is split across several components. Use [Ken Fukuyama's dashboard](https://kenfdev.o6s.io/github-stats-page) to gather accurate counts on contributors, stars and forks across the [GitHub organisation](https://github.com/openfaas).
 
-  > Note: Incubator projects are not counted in these totals and are hosted under [openfaas-incubator](https://github.com/openfaas-incubator) awaiting graduation.
+  > Note: any statistics you gather about the openfaas/faas repository will be invalid, the faas repo is not representative of the project's activity.
 
 ### Governance
 
-OpenFaaS&reg; is an independent project founded by [Alex Ellis](https://www.alexellis.io) which is now being built and shaped by a growing community of contributors, GitHub Organisation members, Core contributors and end-users. OpenFaaS Ltd hosts the OpenFaaS codebase and trademarks. Professional services, sponsorships, and commercial support packages are available [upon request](mailto:sales@openfaas.com).
+OpenFaaS &reg; is an independent open-source project created by [Alex Ellis](https://www.alexellis.io), which is being built and shaped by a [growing community of contributors](https://www.openfaas.com/team/).
+
+OpenFaaS is hosted by OpenFaaS Ltd (registration: 11076587), a company which also offers commercial services, homepage sponsorships, and support. OpenFaaS &reg; is a registered trademark in England and Wales.
 
 ### Users
 
@@ -66,32 +71,7 @@ View a selection of end-user companies who have given permission to have their l
 
 If you're using OpenFaaS please let us know [on this thread](https://github.com/openfaas/faas/issues/776). In addition, you are welcome to request to have your logo listed on the homepage. Thank you for your support.
 
-### Technical overview
-
-#### Function Watchdog
-
-* You can make any Docker image into a serverless function by adding the *Function Watchdog* (a tiny Golang HTTP server)
-* The *Function Watchdog* is the entrypoint allowing HTTP requests to be forwarded to the target process via STDIN or HTTP. The response is sent back to the caller by writing to STDOUT or HTTP from your application.
-
-#### API Gateway / UI Portal
-
-* The API Gateway provides an external route into your functions and collects Cloud Native metrics through Prometheus.
-* Your API Gateway will scale functions according to demand by altering the service replica count in the Docker Swarm or Kubernetes API.
-* A UI is baked in allowing you to invoke functions in your browser and create new ones as needed.
-
-> The API Gateway is a RESTful micro-service and you can view the [Swagger docs here](https://github.com/openfaas/faas/tree/master/api-docs).
-
-#### CLI
-
-Using the [faas-cli](http://github.com/openfaas/faas-cli) and `faas-cli up` you can create, build, distribute, and deploy your code in a very short period of time.
-
-Any container or process in a Docker container can be a serverless workload in OpenFaaS, as long as it [conforms to The Workload Contract](https://docs.openfaas.com/reference/workloads/).
-
-Create new functions from templates for Node.js, Python, [Go](https://blog.alexellis.io/serverless-golang-with-openfaas/) and many more. If you can't find a suitable template you can also use a Dockerfile or create your own.
-
-The CLI is effectively a RESTful client for the API Gateway. When you have OpenFaaS configured you can [get started with the CLI here](https://blog.alexellis.io/quickstart-openfaas-cli/)
-
-#### Examples
+### Code samples
 
 You can generate new functions using the `faas-cli` and built-in templates or use any binary for Windows or Linux in a Docker container.
 
@@ -149,74 +129,59 @@ Official templates exist for many popular languages and are easily extensible wi
     }
     ```
 
-The easiest way to get started with functions is to [take the workshop](https://github.com/openfaas/workshop) or one of the tutorials in the documentation.
-
 ## Get started with OpenFaaS
-
-### Join the Community
-
-* [Join Slack](https://docs.openfaas.com/community)
-* [Become a GitHub sponsor](https://insiders.openfaas.io/)
 
 ### Official blog and documentation
 
-* Read the documentation: [docs.openfaas.com](https://docs.openfaas.com/)
-* Send a PR or raise an issue for the docs [openfaas/docs](https://github.com/openfaas/docs)
+* Read the documentation: [docs.openfaas.com](https://docs.openfaas.com/deployment)
 * Read latest news and tutorials on the [Official Blog](https://www.openfaas.com/blog/)
 
-### Workshop (hands-on learning)
+## Community Subscription
 
-You can learn how to build functions and microservices with OpenFaaS using the [OpenFaaS workshop](http://github.com/openfaas/workshop). The Workshop has been curated carefully by dozens of community members to guide you through everything you need to know from setting up on Kubernetes to making use of secrets to integrating with GitHub and auto-scaling.
+OpenFaaS users can subscribe to a weekly Community Newsletter called Insiders Updates, to keep up to date with new features, bug fixes, events, tutorials and security patches. Insiders Updates are written by the project founder and distributed via GitHub Sponsors.
 
-### Deploy OpenFaaS
+* [Get a Community Subscription](https://github.com/support/)
 
-Here is a screenshot of the API gateway portal - designed for ease of use with the inception function.
+### Support & getting help
+
+* [Cloud Native Consulting](https://www.openfaas.com/consulting) - get hands-on expert help with your cloud, Kubernetes and OpenFaaS migration and projects
+* [Commercial support](https://www.openfaas.com/support) - a subscription service from OpenFaaS Ltd
+* [Join Slack](https://docs.openfaas.com/community) - run by community volunteers
+
+### Online training
+
+* **New**: Training course from the LinuxFoundation: Introduction to Serverless on Kubernetes
+
+    This training course "Introduction to Serverless on Kubernetes" written by the project founder and commissioned by the LinuxFoundation provides an overview of what you need to know to build functions and operate OpenFaaS on public cloud.
+
+    Training course: [Introduction to Serverless on Kubernetes](https://www.edx.org/course/introduction-to-serverless-on-kubernetes)
+
+* Self-paced workshop written by the community on GitHub
+
+    You may also like to try the self-paced workshop on GitHub written by the OpenFaaS community
+
+    Browse the [workshop](https://github.com/openfaas/workshop)
+
+* Corporate trainings
+
+    If you wish to arrange a training session for your team, or a consultation, [feel free to contact OpenFaaS Ltd](https://www.openfaas.com/support/)
+
+### Quickstart
+
 
 ![Portal](/docs/inception.png)
 
-#### Kubernetes
+> Here is a screenshot of the API gateway portal - designed for ease of use with the inception function.
 
-OpenFaaS is Kubernetes-native - you can follow the [deployment guide here](http://docs.openfaas.com/deployment/kubernetes/).
+Deploy OpenFaaS to Kubernetes, OpenShift, or faasd [deployment guides](https://docs.openfaas.com/deployment/)
 
-#### Docker Swarm
+### Video presentations
 
-The deployment guide for Docker Swarm contains a simple one-line command to get you up and running in around 60 seconds. It also includes a set of [sample functions](https://github.com/openfaas/faas/tree/master/sample-functions) which you can use with the TestDrive instructions below.
-
-[Deployment guide for Docker Swarm](http://docs.openfaas.com/deployment/docker-swarm/)
-
-* Docker Playground
-
-    You can quickly start OpenFaaS on Docker Swarm online using the community-run Docker playground: [Play-with-Docker](https://labs.play-with-docker.com/) (PWD)
-
-    Simply follow the deployment guide for Swarm above in a new session
-
-    > You will need a free Docker Hub account to get access. Get one here: [Docker Hub](https://hub.docker.com/)
-
-## Video presentations
-
-### OpenFaaS Cloud + Linkerd: A Secure, Multi-Tenant Serverless Platform
-
-[From KubeCon North America 2019 with Charles Pretzer from Buoyant & Alex Ellis, OpenFaaS Ltd](https://www.youtube.com/watch?v=sD7hCwq3Gw0&feature=emb_title)
-
-### The PLONK Stack/Serverless 2.0 for Kubernetes with OpenFaaS
-
-[Getting Beyond FaaS: The PLONK Stack for Kubernetes Developers - Alex Ellis, OpenFaaS Ltd](https://www.youtube.com/watch?v=NckMekZXRt8&feature=emb_title)
-
-### How LivePerson is Tailoring its Conversational Platform Using OpenFaaS @ KubeCon 2019
-
-> Hear how LivePerson took one of the most popular open source Serverless projects (OpenFaaS) and built it into their product to add value for customers. Functions allow customers to create custom chatbot behaviour, messaging extensions and commerce workflows. You’ll see a live demo and hear about how the team put together the solution
-
-* [Watch on YouTube](https://youtu.be/bt06Z28uzPA)
-
-### Digital Transformation of Vision Banco Paraguay with Serverless Functions @ KubeCon late-2018
-
-[From KubeCon North America 2018 with Alex and Patricio Diaz Senior Analyst, Vision Banco SAECA](https://kccna18.sched.com/event/GraO/digital-transformation-of-vision-banco-paraguay-with-serverless-functions-alex-ellis-vmware-patricio-diaz-vision-banco-saeca)
-
-### Closing Keynote at Dockercon early-2017
-
-Functions as a Service or FaaS was a winner in the Cool Hacks contest for Dockercon 2017.
-
-* [Watch Alex present "FaaS" during the Dockercon 2017 keynote](https://blog.docker.com/2017/04/dockercon-2017-mobys-cool-hack-sessions/)
+* [Meet faasd. Look Ma’ No Kubernetes!](https://www.youtube.com/watch?v=ZnZJXI377ak&feature=youtu.be)
+* [OpenFaaS Cloud + Linkerd: A Secure, Multi-Tenant Serverless Platform](https://www.youtube.com/watch?v=sD7hCwq3Gw0&feature=emb_title)
+* [Getting Beyond FaaS: The PLONK Stack for Kubernetes Developers](https://www.youtube.com/watch?v=NckMekZXRt8&feature=emb_title)
+* [Digital Transformation of Vision Banco Paraguay with Serverless Functions @ KubeCon late-2018](https://kccna18.sched.com/event/GraO/digital-transformation-of-vision-banco-paraguay-with-serverless-functions-alex-ellis-vmware-patricio-diaz-vision-banco-saeca)
+* [Introducing "faas" - Cool Hacks Keynote at Dockercon 2017](https://blog.docker.com/2017/04/dockercon-2017-mobys-cool-hack-sessions/)
 
 ### Community events and blog posts
 

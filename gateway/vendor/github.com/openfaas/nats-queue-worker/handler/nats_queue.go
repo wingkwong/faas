@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	stan "github.com/nats-io/go-nats-streaming"
+	stan "github.com/nats-io/stan.go"
 	"github.com/openfaas/faas/gateway/queue"
 )
 
@@ -44,7 +44,12 @@ func (q *NATSQueue) Queue(req *queue.Request) error {
 	nc := q.nc
 	q.ncMutex.RUnlock()
 
-	return nc.Publish(q.Topic, out)
+	queueName := q.Topic
+	if len(req.QueueName) > 0 {
+		queueName = req.QueueName
+	}
+
+	return nc.Publish(queueName, out)
 }
 
 func (q *NATSQueue) connect() error {

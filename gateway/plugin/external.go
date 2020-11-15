@@ -16,12 +16,19 @@ import (
 	"time"
 
 	types "github.com/openfaas/faas-provider/types"
-	"github.com/openfaas/faas/gateway/handlers"
+	middleware "github.com/openfaas/faas/gateway/pkg/middleware"
 	"github.com/openfaas/faas/gateway/scaling"
 )
 
+// ExternalServiceQuery proxies service queries to external plugin via HTTP
+type ExternalServiceQuery struct {
+	URL          url.URL
+	ProxyClient  http.Client
+	AuthInjector middleware.AuthInjector
+}
+
 // NewExternalServiceQuery proxies service queries to external plugin via HTTP
-func NewExternalServiceQuery(externalURL url.URL, authInjector handlers.AuthInjector) scaling.ServiceQuery {
+func NewExternalServiceQuery(externalURL url.URL, authInjector middleware.AuthInjector) scaling.ServiceQuery {
 	timeout := 3 * time.Second
 
 	proxyClient := http.Client{
@@ -43,20 +50,6 @@ func NewExternalServiceQuery(externalURL url.URL, authInjector handlers.AuthInje
 		ProxyClient:  proxyClient,
 		AuthInjector: authInjector,
 	}
-}
-
-// ExternalServiceQuery proxies service queries to external plugin via HTTP
-type ExternalServiceQuery struct {
-	URL          url.URL
-	ProxyClient  http.Client
-	AuthInjector handlers.AuthInjector
-}
-
-// ScaleServiceRequest request scaling of replica
-type ScaleServiceRequest struct {
-	ServiceName      string `json:"serviceName"`
-	ServiceNamespace string `json:"serviceNamespace"`
-	Replicas         uint64 `json:"replicas"`
 }
 
 // GetReplicas replica count for function
@@ -126,6 +119,7 @@ func (s ExternalServiceQuery) GetReplicas(serviceName, serviceNamespace string) 
 		MinReplicas:       minReplicas,
 		ScalingFactor:     scalingFactor,
 		AvailableReplicas: availableReplicas,
+		Annotations:       function.Annotations,
 	}, err
 }
 
@@ -133,10 +127,9 @@ func (s ExternalServiceQuery) GetReplicas(serviceName, serviceNamespace string) 
 func (s ExternalServiceQuery) SetReplicas(serviceName, serviceNamespace string, count uint64) error {
 	var err error
 
-	scaleReq := ScaleServiceRequest{
-		ServiceName:      serviceName,
-		Replicas:         count,
-		ServiceNamespace: serviceNamespace,
+	scaleReq := types.ScaleServiceRequest{
+		ServiceName: serviceName,
+		Replicas:    count,
 	}
 
 	requestBody, err := json.Marshal(scaleReq)

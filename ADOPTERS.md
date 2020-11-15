@@ -1,14 +1,21 @@
 # Adopters
 
-This is a list of adopters of OpenFaaS
+This list shows adopters of OpenFaaS. If you're using OpenFaaS in some way, then please get in touch.
 
 ## Further resources
 
-* View [GitHub Sponsors / openfaas.com sponsors / backers](BACKERS.md)
+Sponsor
+
+* Become a personal or commercial [OpenFaaS Sponsor on GitHub](https://github.com/openfaas/sponsors)
+
+Services:
+
+* Buy a [Premium OpenFaaS Subscription](https://www.openfaas.com/support) from OpenFaaS Ltd
+
+Tell us more:
 
 * Send a comment, use-case, case-study, or let us know about your usage: [GitHub issue #776](https://github.com/openfaas/faas/issues/776)
-
-* See companies which gave written permission to use logo: [openfaas.com](https://www.openfaas.com/)
+* See companies which have also given written permission to use logo: [openfaas.com](https://www.openfaas.com/)
 
 ## Adopters list (alphabetical)
 
@@ -22,7 +29,11 @@ This is a list of adopters of OpenFaaS
 
 * [Civo](https://www.civo.com) - Civo Cloud provide a 1-click Kubernetes marketplace application for OpenFaaS
 
+* [Cognite](https://www.cognite.com) - Cognite targets heavy asset industries such as oil and gas, shipping and energy sector. They provide data integration tools that help you extract, import, and transform data from siloed source systems, and OpenFaaS is used to provide a cloud function service for heavy tasks.
+
 * [Contiamo](https://www.contiamo.com) - data-science platform hosting jupyter notebooks and functions for multiple tenants.
+
+* [DB2 Limited](https://db2.io) - mobile and web development company in Ukraine. Our internal projects using OpenFaaS functions to run customers code in Kubernetes cluster.
 
 * [DigitalOcean](https://www.digitalocean.com) - DigitalOcean provide a one-click droplet and a 1-click Kubernetes marketplace application for OpenFaaS
 
@@ -38,6 +49,8 @@ This is a list of adopters of OpenFaaS
 
 * [Iconscout](https://iconscout.com) - e-commerce site for stock photography and icons. OpenFaaS is used to resize images and to bundle assets for customers.
 
+* [Ingrooves](https://ingrooves.com) - Ingrooves is a global music distribution, tech & marketing company, and OpenFaaS is a key component in its finance system for report generation, event publishing, and data ingestion.
+
 * [Infotechpartners](www.infotechpartners.be)
 
 * [Intraffic](https://www.intraffic.nl/) - "Using OpenFaaS for integration and callable AI/ML models for asset management."
@@ -52,17 +65,31 @@ This is a list of adopters of OpenFaaS
 
 * [NGC](https://www.ngcsoftware.com/)
 
+* [PathfinderZA](https://www.pathfinderza.com) - PathfinderZA is an IOT security firm selling underground sensors that transmits warnings to users if a person or vehicle goes past it. We're using OpenFaas, with Dockerised functions written in Java (Quarkus) and Rust (Actix/Rocket-RS).
+
 * [Pentium Network](https://www.pentium.network/)
+
+* [PiperCI](https://piperci.dreamer-labs.net) - PiperCI is a task management framework that provides users with a standard library of CI/CD-centric tasks and the [OpenFaas](https://www.openfaas.com/) and [Kubernetes](https://kubernetes.io/) based infrastructure required to run them. PiperCI can be used in conjunction with existing CI/CD orchestrators like GitlabCI, Jenkins, TravisCI, or others to create a more scalable, robust, and functional CI/CD system.
 
 * [Press Association](https://www.pressassociation.com/) - Press Association is using OpenFaaS in development and production as part of our deployment pipeline.
 
 * [Ratehub](https://www.ratehub.ca) - Ratehub is Canada's leading personal finance comparison site. We're breaking apart our monolithic PHP and Java codebases into Node, PHP and Java OpenFaaS functions; there's not much that we don't plan on moving to FaaS!
+
+* [Rapid Circle](https://www.rapidcircle.com) is using OpenFaaS within a Azure Kubernetes cluster to host a large amount of micro-services aiming at automating core activities of their Microsoft 365 Cloud Managed Services offering. Robustness, speed, scalable and simplicity have been major reasons to favor OpenFaaS over Azure Functions.
+
+* [Sprucee](https://spruce.casa) - We use [faasd](https://github.com/openfaas/faasd) as part of our base Encryption as a Service platform which were manually managed docker containers. As NATS based platform we were able to scale to every size we want, but deployment takes many labor time as we need to deal with OS level and customer limitations. Now we can use "faas install/up" to accomplish 80% of deployment effort.
+
+* [SURF](https://www.surf.nl) - [The Green Village](https://www.thegreenvillage.org/) is a living lab at Delft University of Technology. It is an experimental, real-life setting with the goal to accelerate innovation for a sustainable future. [SURF](https://www.surf.nl/), a cooperative association of Dutch educational and research institutions providing digital infrastructure and ICT services, has developed a [digital platform](https://youtu.be/_WYVzoBuWKk) for The Green Village that uses OpenFaaS to classify and sort incoming sensor data at scale.
+
+* [SURFsara IoT Platform for Sensemakers](https://github.com/sensemakersamsterdam/sensemakers-iot-platform) - The SURFsara IoT Platform for Sensemakers is a platform for storing, monitoring, visualising and analyzing sensor data. It is a collaboration platform designed to host multiple projects carried by the Sensemakers community. In addition, there is a project dedicated to experimentation, available for everyone to use. All data within the platform is shared. OpenFaaS serverless functions give access to the platform through an HTTP entry point, take care of the metadata extraction and enable custom event-driven actions.
 
 * [Transmute Industries](https://www.transmute.industries/) - "At Transmute we use OpenFaaS to develop identity and access integrations leveraging decentralized identities that integrate with legacy IAM systems. OpenFaaS helps Transmute and our customers avoid vendor lock in, encourages modularity, and helps us rapidly develop and release integrations for customers."
 
 * [Traversals](https://traversals.com/) - At Traversals, we use OpenFaaS for processing of incoming data. We take benefit from various programming languages available in OpenFaaS.
 
 * [UStore](http://ustore.com.br/) - "We're using OpenFaaS in production"
+
+* [Very Good Security](https://www.verygoodsecurity.com) - VGS uses OpenFaaS to build a solid foundation for the development, deployment, and execution of custom logic on customer payloads as part of their secure compute platform.
 
 * [Vision Banco SAECA](https://www.visionbanco.com) - self-service home banking portal and asynchronous report/PDF generation. See: [KubeCon Video](https://www.youtube.com/watch?v=mPjI34qj5vU&t=1417s)
 
@@ -74,5 +101,4 @@ This is a list of adopters of OpenFaaS
 
 * [Ytel](https://www.ytel.com) - Ytel are a Google Cloud customer and deployed OpenFaaS vs. the vendor alternative due to its wide range of templates, Dockerfile support and easier access to services within the VPC. The Dockerfile template allowed for easy migration of existing code. The latency of transactions for customers during purchase process was reduced by offloading synchronous code to NATS which is built into OpenFaaS. OpenFaaS also allowed "hot path" code to be refactored from large services into multiple functions, to take advantage of horizontal scaling.
 
-Feel free to comment on [this issue](https://github.com/openfaas/faas/issues/776), or to [send a PR](https://github.com/openfaas/faas/edit/master/ADOPTERS.md), to have your logo listed on openfaas.com, contact [alex@openfaas.com](mailto:alex@openfaas.com).
-
+See the top of the file for how to participate.

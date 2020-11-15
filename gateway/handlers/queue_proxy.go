@@ -6,16 +6,21 @@ package handlers
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"net/url"
+	"strings"
 
 	"github.com/gorilla/mux"
 	"github.com/openfaas/faas/gateway/metrics"
 	"github.com/openfaas/faas/gateway/queue"
+	"github.com/openfaas/faas/gateway/scaling"
 )
 
+const queueAnnotation = "com.openfaas.queue"
+
 // MakeQueuedProxy accepts work onto a queue
-func MakeQueuedProxy(metrics metrics.MetricOptions, wildcard bool, canQueueRequests queue.CanQueueRequests, pathTransformer URLPathTransformer) http.HandlerFunc {
+func MakeQueuedProxy(metrics metrics.MetricOptions, queuer queue.RequestQueuer, pathTransformer URLPathTransformer, defaultNS string, functionQuery scaling.FunctionQuery) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Body != nil {
 			defer r.Body.Close()
@@ -24,28 +29,23 @@ func MakeQueuedProxy(metrics metrics.MetricOptions, wildcard bool, canQueueReque
 		body, err := ioutil.ReadAll(r.Body)
 
 		if err != nil {
-			w.WriteHeader(http.StatusBadRequest)
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
 
-			w.Write([]byte(err.Error()))
+		callbackURL, err := getCallbackURLHeader(r.Header)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
 
 		vars := mux.Vars(r)
 		name := vars["name"]
 
-		callbackURLHeader := r.Header.Get("X-Callback-Url")
-		var callbackURL *url.URL
-
-		if len(callbackURLHeader) > 0 {
-			urlVal, urlErr := url.Parse(callbackURLHeader)
-			if urlErr != nil {
-				w.WriteHeader(http.StatusBadRequest)
-
-				w.Write([]byte(urlErr.Error()))
-				return
-			}
-
-			callbackURL = urlVal
+		queueName, err := getQueueName(name, functionQuery)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
 		}
 
 		req := &queue.Request{
@@ -57,15 +57,61 @@ func MakeQueuedProxy(metrics metrics.MetricOptions, wildcard bool, canQueueReque
 			Header:      r.Header,
 			Host:        r.Host,
 			CallbackURL: callbackURL,
+			QueueName:   queueName,
 		}
 
-		if err = canQueueRequests.Queue(req); err != nil {
-			w.WriteHeader(http.StatusInternalServerError)
-			w.Write([]byte(err.Error()))
-			fmt.Println(err)
+		if len(queueName) > 0 {
+			log.Printf("Queueing %s to: %s\n", name, queueName)
+		}
+
+		if err = queuer.Queue(req); err != nil {
+			fmt.Printf("Queue error: %v\n", err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
 		w.WriteHeader(http.StatusAccepted)
 	}
+}
+
+func getCallbackURLHeader(header http.Header) (*url.URL, error) {
+	value := header.Get("X-Callback-Url")
+	var callbackURL *url.URL
+
+	if len(value) > 0 {
+		urlVal, err := url.Parse(value)
+		if err != nil {
+			return callbackURL, err
+		}
+
+		callbackURL = urlVal
+	}
+
+	return callbackURL, nil
+}
+
+func getQueueName(name string, fnQuery scaling.FunctionQuery) (queueName string, err error) {
+	fn, ns := getNameParts(name)
+
+	annotations, err := fnQuery.GetAnnotations(fn, ns)
+	if err != nil {
+		return "", err
+	}
+	queueName = ""
+	if v := annotations[queueAnnotation]; len(v) > 0 {
+		queueName = v
+	}
+
+	return queueName, err
+}
+
+func getNameParts(name string) (fn, ns string) {
+	fn = name
+	ns = ""
+
+	if index := strings.LastIndex(name, "."); index > 0 {
+		fn = name[:index]
+		ns = name[index+1:]
+	}
+	return fn, ns
 }

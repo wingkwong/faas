@@ -1,11 +1,7 @@
 curators:
  - alexellis
- - burtonr
- - carlosedp
- - ewilde
  - LucasRoesler
  - martindekov
- - stefanprodan
  - utsavanand2
  - viveksyngh
  - Waterdrips
@@ -15,7 +11,8 @@ features:
  - comments
  - pr_description_required
  - release_notes
-# - hacktoberfest # Enable each October
+# - hacktoberfest
+# - no_newbies # Newbies are welcome, however there is some automation that will affect you during October. You are welcome, please be patient with us.
 
 contributing_url: https://github.com/openfaas/faas/blob/master/CONTRIBUTING.md
 
